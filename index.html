@@ -4,40 +4,64 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Zoltan Kovac | Resume</title>
-    <script type="module" crossorigin src="./assets/main-53xDQfGK.js"></script>
-    <link rel="stylesheet" crossorigin href="./assets/main-DWRf-Dfh.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script type="module" crossorigin src="./assets/main-CYIcwdSN.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/main-DjK0yuRO.css">
   </head>
-  <body class="p-4">
+  <body class="bg-slate-50 p-4">
     <div
-      class="mx-auto max-w-4xl overflow-hidden rounded-lg bg-white shadow-xl"
+      data-controller="resume"
+      data-resume-gist-id-value="34aafc26cbd916b0a1755826bcfaaeb9"
+      data-resume-username-value="zoltan-kovac"
     >
-      <main
-        class="min-h-[400px] p-8"
-        data-controller="resume"
-        data-resume-gist-id-value="34aafc26cbd916b0a1755826bcfaaeb9"
-        data-resume-username-value="zoltan-kovac"
+      <!-- Download PDF Button -->
+      <div class="no-print fixed right-10 bottom-10">
+        <button
+          data-action="click->resume#downloadPDF"
+          class="flex items-center gap-2 rounded-lg bg-slate-700 px-4 py-2 text-sm font-medium text-white shadow-sm transition-all hover:bg-slate-800 hover:shadow-md focus:ring-2 focus:ring-slate-500 focus:ring-offset-2 focus:outline-none"
+        >
+          <i data-lucide="file-down"></i>
+          Download PDF
+        </button>
+      </div>
+
+      <div
+        class="mx-auto max-w-4xl overflow-hidden rounded-xl bg-white shadow-lg"
       >
-        <div
-          data-resume-target="loading"
-          class="flex flex-col items-center justify-center py-16"
-        >
+        <main class="min-h-100 p-8">
           <div
-            class="h-12 w-12 animate-spin rounded-full border-4 border-gray-200 border-t-blue-600"
-          ></div>
-          <p class="mt-4 text-gray-600">Loading resume data...</p>
-        </div>
+            data-resume-target="loading"
+            class="flex flex-col items-center justify-center py-16"
+          >
+            <div
+              class="h-12 w-12 animate-spin rounded-full border-4 border-gray-200 border-t-slate-600"
+            ></div>
+            <p class="mt-4 text-slate-600">Loading resume data...</p>
+          </div>
 
-        <div
-          data-resume-target="error"
-          class="hidden rounded border border-red-200 bg-red-50 p-4 text-center text-red-700"
-        >
-          <p>Failed to load resume data. Please try again.</p>
-        </div>
+          <div
+            data-resume-target="error"
+            class="hidden rounded-lg border border-red-200 bg-red-50 p-4 text-center text-red-700"
+          >
+            <p>Failed to load resume data. Please try again.</p>
+            <button
+              data-action="click->resume#refresh"
+              class="mt-4 rounded-lg bg-slate-700 px-4 py-2 text-white transition-all hover:bg-slate-800 hover:shadow-md"
+            >
+              Retry
+            </button>
+          </div>
 
-        <div data-resume-target="content" class="animate-fadeIn hidden">
-          <!-- Resume content will be rendered here -->
-        </div>
-      </main>
+          <div data-resume-target="content" class="animate-fadeIn hidden">
+            <!-- Resume content will be rendered here -->
+          </div>
+        </main>
+      </div>
     </div>
 
   </body>
